@@ -157,6 +157,9 @@ class Google(LM):
         completions = []
         for i in range(n):
             response = self.request(prompt, **kwargs)
-            completions.append(response.parts[0].text)
+            try:
+                completions.append(response.parts[0].text)
+            except:
+                print("Expected")
 
         return completions
